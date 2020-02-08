@@ -33,6 +33,7 @@ routes.put('/recipients/:id', RecipientController.update);
 routes.post('/files', upload.single('file'), FileController.store);
 
 // Entregadores
+routes.get('/deliverymans', DeliverymanController.index);
 routes.post('/deliverymans', DeliverymanController.store);
 routes.put('/deliverymans/:id', DeliverymanController.update);
 
