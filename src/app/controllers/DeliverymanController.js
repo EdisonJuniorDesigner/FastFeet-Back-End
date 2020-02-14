@@ -75,6 +75,20 @@ class DeliverymanController {
 
     return res.json({ id, name, email });
   }
+
+  async delete(req, res) {
+    const { id } = req.params;
+
+    const deliverymanExists = await Deliveryman.findByPk(id);
+
+    if (!deliverymanExists) {
+      return res.status(400).json({ error: 'Deliveryman not exists' });
+    }
+
+    await Deliveryman.destroy({ where: { id } });
+
+    return res.send();
+  }
 }
 
 export default new DeliverymanController();
