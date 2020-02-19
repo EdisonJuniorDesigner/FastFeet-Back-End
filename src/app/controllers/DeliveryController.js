@@ -4,6 +4,8 @@ import Deliveryman from '../models/Deliveryman';
 import Recipient from '../models/Recipient';
 import File from '../models/File';
 
+import Mail from '../../lib/Mail';
+
 class DeliveryController {
   async index(req, res) {
     const { page = 1 } = req.query;
@@ -94,6 +96,15 @@ class DeliveryController {
       recipient_id,
       deliveryman_id,
       product,
+    });
+
+    const deliveryman = await Deliveryman.findByPk(deliveryman_id);
+    // const recipient = await Recipient.findByPk(recipient_id);
+
+    await Mail.sendMail({
+      to: `${deliveryman.name} <${deliveryman.email}>`,
+      subject: `${delivery.product}`,
+      text: 'Teste de criação',
     });
 
     return res.json(delivery);

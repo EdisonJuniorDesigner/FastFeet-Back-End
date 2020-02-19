@@ -7,6 +7,7 @@ import RecipientController from './app/controllers/RecipientController';
 import FileController from './app/controllers/FileController';
 import DeliverymanController from './app/controllers/DeliverymanController';
 import DeliveryController from './app/controllers/DeliveryController';
+import DeliveryStatusController from './app/controllers/DeliveryStatusController';
 
 import authMiddleware from './app/middlewares/auth';
 import multerConfig from './config/multer';
@@ -19,6 +20,18 @@ routes.post('/users', UserController.store);
 
 // Inicar uma sessão
 routes.post('/sessions', SessionController.store);
+
+// Listar status das encomendas
+routes.get('/deliveryman/deliveries', DeliveryStatusController.index);
+
+// Listar encomendas finalizadas
+routes.get('/deliveryman/:id/deliveries', DeliveryStatusController.show);
+
+routes.put(
+  '/deliveryman/:deliveryman_id/deliveries/:delivery_id',
+  DeliveryStatusController.update
+);
+routes.post('/files/signature', upload.single('file'), FileController.store);
 
 // Autenticar se o usuário está logado
 routes.use(authMiddleware);
