@@ -1,0 +1,18 @@
+<strong>Olá, {{ deliveryman }}</strong>
+<p>Houve um cancelamento de uma encomenda, após reclamação na entrega:</p>
+
+<strong>Problema: </strong><br />
+<p>{{ description }}</p>
+
+<strong>Detalhes da entrega:</strong><br /><br />
+
+<p>
+  <strong>Produto: </strong>{{ product }}.<br />
+  <strong>Retirada: </strong>{{ startDate }}.<br />
+  <strong>Tentativa de entrega: </strong>{{ endDate }}<br />
+  <br />
+  <br />
+  <small>
+    Uma nova tentativa de entrega será feita assim que os problemas forem resolvidos.
+  </small>
+</p>

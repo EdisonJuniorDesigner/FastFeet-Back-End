@@ -8,6 +8,7 @@ import FileController from './app/controllers/FileController';
 import DeliverymanController from './app/controllers/DeliverymanController';
 import DeliveryController from './app/controllers/DeliveryController';
 import DeliveryStatusController from './app/controllers/DeliveryStatusController';
+import DeliveryProblemController from './app/controllers/DeliveryProblemController';
 
 import authMiddleware from './app/middlewares/auth';
 import multerConfig from './config/multer';
@@ -33,6 +34,9 @@ routes.put(
 );
 routes.post('/files/signature', upload.single('file'), FileController.store);
 
+// Criar uma descrição de problema na entrega
+routes.post('/deliveries/:id/problems', DeliveryProblemController.store);
+
 // Autenticar se o usuário está logado
 routes.use(authMiddleware);
 
@@ -57,5 +61,9 @@ routes.post('/deliveries', DeliveryController.store);
 routes.get('/deliveries', DeliveryController.index);
 routes.put('/deliveries/:id', DeliveryController.update);
 routes.delete('/deliveries/:id', DeliveryController.delete);
+
+// Problemas na entrega
+routes.get('/deliveries/:id/problems', DeliveryProblemController.index);
+routes.delete('/problem/:id/cancel-delivery', DeliveryProblemController.delete);
 
 export default routes;
