@@ -11,7 +11,7 @@ Esse desafio faz parte do Desafio Final, que é uma aplicação completa (Back-e
 # Clonar este projeto
 
 ```
-$ git clone https://github.com/RennanD/fastfeet.git
+$ git clone https://github.com/EdisonJuniorDesigner/FastFeet-Back-End.git
 ```
 
 ### Postgres com DOCKER: 🐋
