@@ -32,7 +32,7 @@ $ docker start "CONTAINER DOCKER ID"
 $ docker run --name some-redis -d redis
 ```
 
-#### Se você ja tem um container com Rerdis, rode:
+#### Se você ja tem um container com Redis, rode:
 
 ```
 $ docker start "CONTAINER DOCKER ID"
@@ -52,7 +52,7 @@ $ yarn sequelize db:seed:all
 $ yarn dev
 ```
 
-### Ferramentas utilizadas na aplicação:
+### Ferramentas utilizadas:
 
 - [Node.js](https://github.com/nodejs)
 - [Express](https://github.com/expressjs/express)
@@ -69,7 +69,7 @@ $ yarn dev
 - [Sentry](https://sentry.io/) - Para tratamento de exceções e controle de erros em produção.
 - [Youch](https://github.com/poppinss/youch) - Tratamento de erros em desenvolvimento.
 
-### Bancos de dados da aplicação
+### Bancos de dados
 - [Postgres](https://github.com/postgres/postgres)
 - [Redis](https://redis.io/)
 
